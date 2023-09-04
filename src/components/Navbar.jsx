@@ -24,7 +24,7 @@ const Navbar = () => {
       }}
       >
     <img src={haardhiklogo} alt='logo' className='w-10 h-10 object-contain'  />
-    <p className="text-black text-[22px] font-bold cursor-pointer flex"> Haardhik &nbsp;<span className="sm:block hidden flex">| Fullstack Dev</span></p>
+    <p className="text-black text-[22px] font-bold cursor-pointer flex"> Space Doge</p>
       </Link>
       <ul className="list-none hidden sm:flex flex-row gap-10">
          {navLinks.map((Link)=>(

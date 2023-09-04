@@ -8,24 +8,39 @@ const Earth = () => {
   const earth = useGLTF("./planet/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <mesh>
+     <hemisphereLight intensity={0.2}/>
+     <directionalLight intensity={10}
+     position={[1,0,-2.5]}/>
+     {/* <ambientLight intensity={10}/> */}
+
+     
+
+
+<primitive object={earth.scene} scale={4.5} position-y={0.5} rotation-y={-3} />
+
+    </mesh>
+    
+    
   );
 };
 
 const EarthCanvas = () => {
   return (
     <Canvas
-      shadows
-      frameloop='demand'
+     
       dpr={[1, 2]}
       gl={{ preserveDrawingBuffer: true }}
       camera={{
-        fov: 150,
-        near: 3,
-        // far: 100,
-        position: [-6, 12, -6],
+        fov: 45,
+        // near: 0.5,
+        far: 100,
+        position: [-8, 9, -6],
       }}
+
     >
+  
+
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           autoRotate
