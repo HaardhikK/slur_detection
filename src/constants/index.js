@@ -30,7 +30,7 @@ import {
   export const navLinks = [
   
     {
-      id: "contact",
+      id: "home",
       title: "Home",
     },
   ];

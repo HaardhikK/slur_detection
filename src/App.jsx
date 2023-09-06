@@ -7,11 +7,12 @@ const App = () => {
   return (
     <BrowserRouter>
     {/* <div className="relative z-0 bg-[#EEE2DC]"> */}
-    <div className="relative z-0 bg-gradient-to-b from-[#555555] to-[#222222]">
+    <div className="relative z-0 bg-gradient-to-b from-[#000000] to-[#000000]">
     <div className=' bg-cover bg-no-repeat bg-center'>
      <Navbar />
-     <Contact />
-     <StarsCanvas />
+     <Hero />
+     {/* <Contact /> */}
+     {/* <StarsCanvas /> */}
     </div>
 
     {/* <About />
