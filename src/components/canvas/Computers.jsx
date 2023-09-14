@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls,Preload,useGLTF } from '@react-three/drei'
 
 import CanvasLoader from "../Loader"
+import { reverseEasing } from 'framer-motion'
 const Computers = ({isMobile}) => {
   const computer = useGLTF("./desktop_pc/scene.gltf")
   return (
@@ -22,7 +23,7 @@ const Computers = ({isMobile}) => {
       scale={isMobile ? 2.3: 2.6}
       shadows
       castShadow
-      position={isMobile ? [-0.4,-5.6,-2.5]:[5.5,-4.25,1.5]}
+      position={isMobile ? [-0.4,-5.6,-2.5]:[5.5,-14.25,1.5]}
       rotation={isMobile ?[0,-0.6,0]:[0,-0.6,-0.1]}
      />
 
@@ -58,12 +59,14 @@ const ComputersCanvas = () =>{
     frameloop='demand'
     shadows
     dpr={[1,2]}
-    camera={{position:[1,15,15],fov:35}}
+    camera={{position:[1,15,15],fov:105}}
     gl={{preserveDrawingBuffer:true}}
     >
     <Suspense fallback={<CanvasLoader />}>
     <OrbitControls
-    
+    autoRotate
+    reverseOrbit
+
      enableZoom={false }
     maxPolarAngle={Math.PI/2}
     minPolarAngle={Math.PI/2}

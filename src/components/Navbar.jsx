@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav
-    className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-gradient-to-r from-[#EEE2DC] to-[#333333]`}
+    className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-gradient-to-r from-[#EEE2DC] to-[#000000]`}
     >
     <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
       <Link
@@ -24,7 +24,7 @@ const Navbar = () => {
       }}
       >
     <img src={haardhiklogo} alt='logo' className='w-10 h-10 object-contain'  />
-    <p className="text-black text-[22px] font-bold cursor-pointer flex"> Space Doge</p>
+    <p className="text-black text-[22px] font-bold cursor-pointer flex">Starry Outline</p>
       </Link>
       <ul className="list-none hidden sm:flex flex-row gap-10">
          {navLinks.map((Link)=>(
