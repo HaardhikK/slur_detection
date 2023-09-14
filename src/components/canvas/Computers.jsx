@@ -8,7 +8,7 @@ import { reverseEasing } from 'framer-motion'
 const Computers = ({isMobile}) => {
   const computer = useGLTF("./desktop_pc/scene.gltf")
   return (
-    <mesh>
+    <mesh >
      <hemisphereLight intensity={2}
      groundColor="black" />
      
@@ -19,11 +19,11 @@ const Computers = ({isMobile}) => {
      shadow-mapSize={1024}
      />
 
-     <primitive object={computer.scene}
+     <primitive object={computer.scene} 
       scale={isMobile ? 2.3: 2.6}
       shadows
       castShadow
-      position={isMobile ? [-0.4,-5.6,-2.5]:[5.5,-14.25,1.5]}
+      position={isMobile ? [-0.4,-15.6,-2.5]:[5.5,-14.25,1.5]}
       rotation={isMobile ?[0,-0.6,0]:[0,-0.6,-0.1]}
      />
 
@@ -56,7 +56,7 @@ const ComputersCanvas = () =>{
 
   return(
     <Canvas
-    frameloop='demand'
+    // frameloop='demand'
     shadows
     dpr={[1,2]}
     camera={{position:[1,15,15],fov:105}}
@@ -67,7 +67,7 @@ const ComputersCanvas = () =>{
     autoRotate
     reverseOrbit
 
-     enableZoom={false }
+    enableZoom={false }
     maxPolarAngle={Math.PI/2}
     minPolarAngle={Math.PI/2}
     />

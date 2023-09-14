@@ -1,47 +1,77 @@
-import {motion} from "framer-motion"
+import React, { useState, useEffect } from 'react';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { motion } from "framer-motion"
 import { styles } from "../styles"
 import { ComputersCanvas } from "./canvas"
-//text in the title page
+
 const Hero = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [toxicStatus, setToxicStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleImageInputChange = async (e) => {
+    // ... (your existing code for image handling)
+  };
+
   return (
     <section className="relative w-full h-screen mx-auto">
-    <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
-    <div className="flex flex-col justify-center items-center mt-5">
+      {/* main */}
+      <div className={`sm:px-16 px-16 flex items-center justify-center absolute bottom-[290px] inset-0 max-w-7xl mx-auto flex flex-row items-start gap-7`} style={{ zIndex: 2 }}>
+        {/* Your main content */}
+        <div className="flex flex-col justify-center items-center mt-5">
+          {/* // line */}
+          <div className={`w-7 h-7 rounded-full bg-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} />
+          <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-t from-[#444444] to-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} />
+        </div>
 
-    <div className="w-5 h-5 rounded-full bg-secondary" /> 
-    <div className="w-1 sm:h-80 h-40 bg-gradient-to-tl from-[#EEE2DC] to-primary"/>
-    </div>
-    <div>
-      
-      <h1 className={`${styles.heroHeadText} text-[#EEE2DC]`}>Chat <span className="text-[#444444] ">slur</span> detector</h1>
-      <p className={`${styles.heroSubText} mt-2 text-[#000000]`}>
-        something about the website <br  />input button n result.
-      </p>
-    </div>
-    </div>
-    <ComputersCanvas />
+        <div>
+          <h1 className={`font-black lg:text-[70px] sm:text-[50px] xs:text-[50px] text-[40px] lg:leading-[98px] text-center text-[#EEE2DC]`}>Chat <span className=" bg-gradient-to-tl from-[#95FF66] to-[red] bg-clip-text text-transparent ">slur</span> detector</h1>
 
-    {/* <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
-        <a href='#about'>
-          <div className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
-            <motion.div
-              animate={{
-                y: [0, 24, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className='w-3 h-3 rounded-full bg-secondary mb-1'
+          {toxicStatus === 'toxic'
+            ? (
+              <>
+                <p className={`${styles.heroSubText} text-center text-[#000000]`}>Oh No .<br />The Text is Toxic !!</p>
+              </>
+            )
+            : toxicStatus === 'non-toxic'
+              ? (
+                <>
+                  <p className={`${styles.heroSubText} text-center text-[#000000]`}>No need to worry .<br />The Text is Not Toxic .</p>
+                </>
+              )
+              : (
+                <>
+                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Wanna know if the texts are toxic or not?<br />Enter image of the chat and find out .</p>
+                </>
+              )
+          }
+          <div className="mt-3 flex items-center justify-center">
+            <label htmlFor="imageInput" className="btn btn-3 hover-border-3 " style={{ marginLeft: '2px' }}>
+              <span>ADD IMAGE</span>
+            </label>
+            <input
+              type="file"
+              id="imageInput"
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={handleImageInputChange}
             />
           </div>
-        </a>
-      </div> */}
+        </div>
+        {/* End of main content */}
+      </div>
 
+      <ComputersCanvas />
 
+      {/* Your Main Content Div */}
+      <style jsx>{`
+        .main-content {
+          position: absolute;
+          z-index: 2; /* Adjust the z-index value to place it above ComputersCanvas */
+        }
+      `}</style>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;
