@@ -19,9 +19,12 @@ const Hero = () => {
       <div className={`sm:px-16 px-16 flex items-center justify-center absolute bottom-[290px] inset-0 max-w-7xl mx-auto flex flex-row items-start gap-7`} style={{ zIndex: 2 }}>
         {/* Your main content */}
         <div className="flex flex-col justify-center items-center mt-5">
-          {/* // line */}
-          <div className={`w-7 h-7 rounded-full bg-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} />
-          <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-t from-[#444444] to-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} />
+          {/* // line 
+          theres a glitch that makes the line turn black. just enter bg-[ff000] similarly for green and then crt z */}
+          {/* <div className={`w-7 h-7 rounded-full bg-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} />
+          <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-t from-[#444444] to-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} /> */}
+          <div className={`w-7 h-7 rounded-full bg-[#EEE2DC]`} />
+          <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-b from-[#EEE2DC] to-[#222222]`} />
         </div>
 
         <div>
@@ -30,13 +33,13 @@ const Hero = () => {
           {toxicStatus === 'toxic'
             ? (
               <>
-                <p className={`${styles.heroSubText} text-center text-[#000000]`}>Oh No .<br />The Text is Toxic !!</p>
+                <p className={`text-[#FF0000] font-medium lg:text-[35px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] text-center `}>Oh No .<br />The Text is Toxic !!</p>
               </>
             )
             : toxicStatus === 'non-toxic'
               ? (
                 <>
-                  <p className={`${styles.heroSubText} text-center text-[#000000]`}>No need to worry .<br />The Text is Not Toxic .</p>
+                  <p className={`text-[#95FF66] font-medium lg:text-[35px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] text-center`}>No need to worry .<br />The Text is Not Toxic .</p>
                 </>
               )
               : (
