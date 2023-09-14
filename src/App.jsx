@@ -9,7 +9,7 @@ const App = () => {
     {/* <div className="relative z-0 bg-[#EEE2DC]"> */}
     <div className="relative z-0 bg-gradient-to-b from-[#555555] to-[#222222]">
     <div className=' bg-cover bg-no-repeat bg-center'>
-     <Navbar />
+     {/* <Navbar /> */}
      <Contact />
      <StarsCanvas />
     </div>
