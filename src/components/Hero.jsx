@@ -57,8 +57,8 @@ const Hero = () => {
           theres a glitch that makes the line turn black. just enter bg-[ff000] similarly for green and then crt z */}
           {/* <div className={`w-7 h-7 rounded-full bg-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} />
           <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-t from-[#444444] to-[#${toxicStatus === 'toxic' ? 'FF0000' : '95FF66'}]`} /> */}
-          <div className={`w-7 h-7 rounded-full bg-[#EEE2DC]`} />
-          <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-b from-[#EEE2DC] to-[#222222]`} />
+          {/* <div className={`w-7 h-7 rounded-full bg-[#EEE2DC]`} />
+          <div className={`w-2 rounded-b-md sm:h-80 h-80 bg-gradient-to-b from-[#EEE2DC] to-[#222222]`} /> */}
         </div>
 
         <div>
@@ -78,7 +78,7 @@ const Hero = () => {
               )
               : (
                 <>
-                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Enter image of the chat and find out if the texts are toxic or not .<br /> Please wait a few seconds </p>
+                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Enter image of the chat and find out if the texts are toxic or not .<br /> Please wait a few seconds</p>
                 </>
               )
           }
