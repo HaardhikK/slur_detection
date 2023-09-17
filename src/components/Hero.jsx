@@ -82,7 +82,7 @@ const Hero = () => {
               )
               : (
                 <>
-                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Enter image of the chat and find out if the texts are toxic or not .<br /> Please wait a few seconds</p>
+                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Enter image of the chat and find out <br /> if the texts are toxic or not .</p>
                   
                 </>
               )
