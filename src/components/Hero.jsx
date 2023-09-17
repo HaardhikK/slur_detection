@@ -3,7 +3,7 @@ import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { motion } from "framer-motion"
 import { styles } from "../styles"
 import { ComputersCanvas } from "./canvas"
-
+import MoonLoader from "react-spinners/MoonLoader";
 const Hero = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [toxicStatus, setToxicStatus] = useState(null);
@@ -31,10 +31,13 @@ const Hero = () => {
           const result = await response.json();
           if (result.response === 'Toxic') {
             setToxicStatus('toxic');
+            setSelectedImage(null)
           } else if (result.response === 'Not Toxic') {
             setToxicStatus('non-toxic');
+            setSelectedImage(null)
           } else {
             console.error('Invalid response from the server.');
+            setSelectedImage(null)
           }
         } else {
           console.error('Image upload failed.');
@@ -79,20 +82,37 @@ const Hero = () => {
               : (
                 <>
                   <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Enter image of the chat and find out if the texts are toxic or not .<br /> Please wait a few seconds</p>
+                  
                 </>
               )
           }
           <div className="mt-3 flex items-center justify-center">
+            { selectedImage==null?
+            (<>
             <label htmlFor="imageInput" className="btn btn-3 hover-border-3 " style={{ marginLeft: '2px' }}>
-              <span>ADD IMAGE</span>
-            </label>
-            <input
-              type="file"
-              id="imageInput"
-              accept="image/*"
-              style={{ display: 'none' }}
-              onChange={handleImageInputChange}
-            />
+            <span>ADD IMAGE</span>
+          </label>
+          <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={handleImageInputChange}
+          />
+          </>
+          )
+:
+(
+  <>
+  <MoonLoader
+                  color="#706c61"
+                  speedMultiplier={0.4}
+                  /> 
+  </>
+)
+            }
+
+            
           </div>
         </div>
         {/* End of main content */}
