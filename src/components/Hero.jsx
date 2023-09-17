@@ -27,6 +27,7 @@ const Hero = () => {
           body: formData,
         });
 
+        
         if (response.ok) {
           const result = await response.json();
           if (result.response === 'Toxic') {
