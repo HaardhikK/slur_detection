@@ -9,8 +9,42 @@ const Hero = () => {
   const [toxicStatus, setToxicStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+
   const handleImageInputChange = async (e) => {
-    // ... (your existing code for image handling)
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setSelectedImage(imageUrl);
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      setIsLoading(true);
+
+      try {
+        const response = await fetch('https://29cf-2405-201-1b-6066-c93d-7a6f-4644-a7cb.ngrok.io/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          if (result.response === 'Toxic') {
+            setToxicStatus('toxic');
+          } else if (result.response === 'Not Toxic') {
+            setToxicStatus('non-toxic');
+          } else {
+            console.error('Invalid response from the server.');
+          }
+        } else {
+          console.error('Image upload failed.');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -44,7 +78,7 @@ const Hero = () => {
               )
               : (
                 <>
-                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Wanna know if the texts are toxic or not?<br />Enter image of the chat and find out .</p>
+                  <p className={`${styles.heroSubText} text-center  text-[#000000]`}>Enter image of the chat and find out if the texts are toxic or not .<br /> Please wait a few seconds </p>
                 </>
               )
           }
